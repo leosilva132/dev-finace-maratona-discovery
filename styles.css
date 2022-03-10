@@ -1,0 +1,70 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #F0F1F5;
+}
+.container {
+    max-width: 380px;
+    margin: auto;
+}
+/* Header Styles */
+
+header {
+    background: #2C4A22;
+}
+
+header h1 {
+    text-align: center;
+    padding: 2rem 1rem 8rem 1rem;
+}
+
+
+/* Main Styles */
+
+.cards {
+    width: min(90vw, 900px);
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin: -3rem auto;
+}
+
+.cards h3 {
+    font-size: 0.8rem;
+    font-weight:normal;
+}
+
+.cards p {
+    font-size: 2.25rem;
+}
+
+.incoming {
+    background: #fff;
+    padding: 1.25rem;
+    border-radius: 0.25rem;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+.expenses {
+    background: #fff;
+    padding: 1.25rem;
+    border-radius: 0.25rem;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.total {
+    background: #379514;
+    color: #fff;
+    padding: 1.25rem;
+    border-radius: 0.25rem;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+#balance {
+    margin-top: 8rem;
+}
