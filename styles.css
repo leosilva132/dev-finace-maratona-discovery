@@ -1,4 +1,10 @@
 /* Global Styles */
+:root {
+   --green: #379514;
+   --light-green:#65CA3F;
+   --red: #C30B0B;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -8,11 +14,61 @@
 body {
     font-family: 'Poppins', sans-serif;
     background: #F0F1F5;
+    min-height: 100vh;
+    flex-direction: column;
 }
 
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
+    width: min(90vw, 1200px);
+    margin: auto;
+}
+
+/*Links & buttons */
+
+.new-transaction {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--green);
+    padding-left: 0.25rem;
+    margin-bottom: 1rem;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow:hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+.btn-cancel {
+    padding: 20px 0;
+    background: none;
+    border: 2px solid var(--red);
+    border-radius: 4px;
+    text-transform:uppercase;
+    font-size:1rem;
+    color: #C30B0B;
+    cursor: pointer;
+    width:180px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.btn-salve {
+    padding: 20px 0;
+    background: var(--green);
+    border: none;
+    border-radius: 4px;
+    text-transform:uppercase;
+    font-size: 1rem;
+    color: #fff;
+    cursor: pointer;
+    width:180px;
 }
 
 /* Header Styles */
@@ -30,14 +86,13 @@ header h1 {
 /* Main Styles */
 
 .cards {
-    width: min(90vw, 1200px);
     display: flex;
     justify-content: center;
     align-items: center;
     align-self: center;
     flex-wrap: wrap;
     gap: 20px;
-    margin: -3rem auto;
+    margin-top: -5rem;
 }
 
 .cards h3 {
@@ -76,7 +131,7 @@ header h1 {
 
 .total {
     width: 380px;
-    background: #379514;
+    background: var(--green);
     color: #fff;
     padding: 1.25rem;
     border-radius: 0.25rem;
@@ -94,6 +149,7 @@ header h1 {
     justify-content: space-between;
     margin-bottom: 1rem;
 }
+
 .text-total {
     display: flex;
     justify-content: space-between;
@@ -101,7 +157,7 @@ header h1 {
 }
 
 #balance {
-    margin-top: 8rem;
+    padding-top: 2rem;
 }
 
 #data-table {
@@ -145,23 +201,16 @@ td.data {
     color: #A3A3A3;
 }
 
-/*Footer styles*/
-
-footer p { 
-    margin: 80px;
-    text-align: center;
-    color: #A3A3A3;
-}
-
 /* Modal Styles*/
 
-.container-modal {
+/* .container-modal {
     width: 100vw;
     height: 100vh;
     max-width:100%;
     background:rgba(0, 0, 0, 0.7);
     position: absolute;
     z-index: 50;
+    display: none;
 }
 
 .modal {
@@ -228,7 +277,7 @@ footer p {
 
 .btn-salve {
     padding: 20px 0;
-    background: #379514;
+    background: var(--green);
     border: none;
     border-radius: 4px;
     text-transform:uppercase;
@@ -236,4 +285,158 @@ footer p {
     color: #fff;
     cursor: pointer;
     width:180px;
+} */
+
+
+/* New Modal Style */
+
+.modal-overlay {
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    min-height: 100vh;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility:visible;
+}
+
+.modal {
+    padding: 20px;
+    background: #F0F1F5;
+    border-radius: .25rem;
+	animation: fadeInDown 1.5s;
+}
+
+/* Form Styles */
+.form h2 {
+    font-weight: normal;
+    margin-bottom: 1rem;
+}
+
+.help {
+    margin-left: 5px;
+    opacity: 0.4;
+}
+
+.input-group {
+    margin-top: .8rem;
+}
+
+.input-group input {
+    width: 100%;
+    height: 52px;
+    padding: 20px 10px;
+    border: none;
+    border-radius: .25rem;
+}
+
+input[type="date"]{
+    margin-top: 20px;
+}
+
+.input-group.actions {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1.25rem;
+}
+
+/*Footer styles*/
+
+
+footer p {
+    padding-top: 2rem;
+    text-align: center;
+    color: #A3A3A3;
+}
+
+/* Animation */
+
+@-webkit-keyframes fadeInDown {
+    from {
+        opacity:0;
+        -webkit-transform: translatey(-400px);
+        -moz-transform: translatey(-400px);
+        -o-transform: translatey(-400px);
+        transform: translatey(-400px);
+    }
+    to {
+        opacity:1;
+        -webkit-transform: translatey(0);
+        -moz-transform: translatey(0);
+        -o-transform: translatey(0);
+        transform: translatey(0);
+    }
+}
+@-moz-keyframes fadeInDown {
+    from {
+        opacity:0;
+        -webkit-transform: translatey(-400px);
+        -moz-transform: translatey(-400px);
+        -o-transform: translatey(-400px);
+        transform: translatey(-400px);
+    }
+    to {
+        opacity:1;
+        -webkit-transform: translatey(0);
+        -moz-transform: translatey(0);
+        -o-transform: translatey(0);
+        transform: translatey(0);
+    }
+}
+@keyframes fadeInDown {
+    from {
+        opacity:0;
+        -webkit-transform: translatey(-400px);
+        -moz-transform: translatey(-400px);
+        -o-transform: translatey(-400px);
+        transform: translatey(-400px);
+    }
+    to {
+        opacity:1;
+        -webkit-transform: translatey(0);
+        -moz-transform: translatey(0);
+        -o-transform: translatey(0);
+        transform: translatey(0);
+    }
+}
+
+
+/* Resposive */
+
+@media(max-width: 866px) {
+    .cards {
+        display: block;
+    }
+
+    .incoming {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .expenses {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .total {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    @media (max-width:450px) {
+        
+    #data-table {
+        display: block;
+        overflow-x: auto;
+    }
+    }
 }
