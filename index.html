@@ -22,21 +22,21 @@
                         <h3>Entradas</h3>
                         <img src="/img/up-arrow.svg" alt="Icone de entradas" srcset="">
                     </div>
-                    <p>R$ 5.056,00<p>
+                    <p id="incomeDisplay">R$ 0,00<p>
                 </div>
                 <div class="expenses">
                     <div class="text-expenses">
                         <h3>Saídas</h3>
                         <img src="/img/down-arrow.svg" alt="">
                     </div>
-                    <p>R$ 4.356,00<p>
+                    <p id="expenseDisplay">R$ 0,00<p>
                 </div>
                 <div class="total">
                     <div class="text-total">
                         <h3>Total</h3>
                         <img src="/img/money.svg" alt="">
                     </div>
-                    <p>R$ 1.056,00</p>
+                    <p id="totalDisplay">R$ 0,00</p>
                 </div>
             </section>
             <section class="container" id="balance"> 
@@ -47,34 +47,10 @@
                             <th>Descricão</th>
                             <th>Valor</th>
                             <th>Data</th>
-                            <th>Add/Remove</th>
+                            <th>Remover</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td class="descript">Web Site</td>
-                            <td class="positive">+R$ 2.000,00</td>
-                            <td class="data">23/02/2022</td>
-                            <td><img src="/img/credit.svg" alt="Icone Credit" srcset=""></td>
-                        </tr>
-                        <tr>
-                            <td class="descript">Lanche Coisa Boa</td>
-                            <td class="negative">-R$ 50,00</td>
-                            <td class="data">25/02/2022</td>
-                            <td><img src="/img/cost.svg" alt="Icone Cost" srcset=""></td>
-                        </tr>
-                        <tr>
-                            <td class="descript">Conta Energia</td>
-                            <td class="negative">-R$ 220,00</td>
-                            <td class="data">27/02/2022</td>
-                            <td><img src="/img/cost.svg" alt="Icone Cost" srcset=""></td>
-                        </tr>
-                        <tr>
-                            <td class="descript">Pix Recebido</td>
-                            <td class="positive">+R$  500,00</td>
-                            <td class="data">28/02/2022</td>
-                            <td><img src="/img/credit.svg" alt="" srcset=""></td>
-                        </tr>
                     </tbody>
                 </table>
             </section>
@@ -84,7 +60,7 @@
         <div class="modal">
             <div class="form">
                 <h2>Nova Transação</h2>
-                <form action="" class="">
+                <form action="" onsubmit="Form.submit(event);">
                     <div class="input-group">
                         <label for="description" class="sr-only">Descricão</label>
                         <input type="text" id="description" name="description" placeholder="Descricão">
