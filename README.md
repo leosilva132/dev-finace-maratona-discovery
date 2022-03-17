@@ -1,2 +1,2 @@
-# dev-finace-maratona-discovery
+# dev-finance-maratona-discovery
 versão 1.0
