@@ -40,7 +40,7 @@
                 </div>
             </section>
             <section class="container" id="balance"> 
-                <a onclick="Modal.open()" class="new-transaction" href="#">+ Nova Transação</a>
+                <a onclick="Modal.toggle()" class="new-transaction" href="#">+ Nova Transação</a>
                 <table id="data-table">
                     <thead>
                         <tr>
@@ -56,7 +56,7 @@
             </section>
     </main>
 
-    <div class="modal-overlay">
+    <div onclick="Modal.outSideModal(event)" class="modal-overlay">
         <div class="modal">
             <div class="form">
                 <h2>Nova Transação</h2>
@@ -78,7 +78,7 @@
                     </div>
 
                     <div class="input-group actions">
-                        <a onclick="Modal.close()" class="btn-cancel" href="#">Cancelar</a>
+                        <a onclick="Modal.toggle()" class="btn-cancel" href="#">Cancelar</a>
                         <button class="btn-salve">Salvar</button>
                     </div>
 

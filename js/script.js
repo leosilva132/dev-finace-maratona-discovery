@@ -1,25 +1,16 @@
 const Modal = {
-    open(){
-        //Abrir o modal 
-        // Adicionar a Classe active no modal
-        document.querySelector('.modal-overlay').classList.add('active');
+    toggle(){
+        //Abrir e fechar o modal 
+        // Adicionar e remover a Classe active no modal
+        document.querySelector('.modal-overlay').classList.toggle('active');
     },
-    close(){
-        //Fechar  o modal 
-        // Remover a Classe active no modal
-        document.querySelector('.modal-overlay').classList.remove('active');
+    outSideModal(event){
+        const containerModal = document.querySelector('.modal-overlay');
+        if(event.target == containerModal){
+            document.querySelector('.modal-overlay').classList.remove('active');
+        }
     }
 }
-
-const containerModal = document.querySelector('.modal-overlay');
-
-function clickOutSide(event) {
-    if(event.target === this){
-        containerModal.classList.remove('active');
-    } 
-}
-
-containerModal.addEventListener('click', clickOutSide);
 
 const Storage = {
     get(){
@@ -87,7 +78,6 @@ const DOM = {
     },
     innerHTMLTrasaction(transaction, index){
         const CSSClass = transaction.amount > 0 ? "positive" : "negative"
-
         const amount = Utils.formatCurrency(transaction.amount)
 
         const HTML = `
@@ -106,8 +96,19 @@ const DOM = {
         document.getElementById('expenseDisplay').innerHTML = Utils.formatCurrency(Transaction.expenses());
         document.getElementById('totalDisplay').innerHTML = Utils.formatCurrency(Transaction.total());
     },
+
     clearTransaction(){
         DOM.transactionsContainer.innerHTML = ""
+    },
+
+    changeColor(){
+        const cardTotal = document.querySelector('.total')  
+
+        if(Transaction.total() < 0){
+            cardTotal.classList.add('totalnegative')
+        } else{
+            cardTotal.classList.remove('totalnegative')
+        }
     }
 }
 
@@ -115,7 +116,7 @@ const Utils = {
 
     formatValue(value){
         value = Number(value) * 100
-        return value
+        return Math.round(value)
     },
 
     formatDate(date){
@@ -186,7 +187,7 @@ const Form = {
             const transaction = Form.formatValues()
             Transaction.add(transaction)
             Form.clearFields()
-            Modal.close()
+            Modal.toggle()
         }
         catch (error){
             alert(error.message)
@@ -197,10 +198,10 @@ const Form = {
 const App = {
     init(){
         Transaction.all.forEach(DOM.addTransaction)
-                
+   
         DOM.updateBalance()
-
         Storage.set(Transaction.all)
+        DOM.changeColor()  
 
     },
 
