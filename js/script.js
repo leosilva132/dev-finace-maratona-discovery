@@ -9,6 +9,13 @@ const Modal = {
         if(event.target == containerModal){
             document.querySelector('.modal-overlay').classList.remove('active');
         }
+    },
+    keyDownEsc(){
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                document.querySelector('.modal-overlay').classList.remove('active');
+            }
+          })
     }
 }
 
